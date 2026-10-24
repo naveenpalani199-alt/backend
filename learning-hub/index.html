@@ -4,38 +4,30 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f4f7fb">
+  <meta name="description" content="A simple dashboard for exploring backend learning tasks.">
   <title>Backend Learning Hub</title>
   <link rel="stylesheet" href="styles.css">
   <script src="tasks.js" defer></script>
 </head>
 <body>
-  <main class="page-shell">
-    <header class="site-header">
-      <a class="brand" href="index.html" aria-label="Backend Learning Hub home">
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#/" aria-label="Backend Learning Hub home">
         <span class="brand-mark" aria-hidden="true">B</span>
-        <span>Backend Learning Hub</span>
+        <span class="brand-name">Backend Learning Hub</span>
       </a>
-      <span class="header-label">LEARNING TRACKS</span>
+      <div class="topbar-meta">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span>Learning dashboard</span>
+      </div>
     </header>
 
-    <section class="intro" aria-labelledby="page-title">
-      <p class="eyebrow">YOUR TASKS, IN ONE PLACE</p>
-      <h1 id="page-title">Backend Learning Hub</h1>
-      <p class="intro-copy">Choose a section and open a task to continue learning.</p>
-    </section>
+    <main id="app" class="main-content" tabindex="-1"></main>
 
-    <section class="track" aria-labelledby="javascript-title">
-      <div class="track-heading">
-        <div>
-          <p class="eyebrow">LEARNING SECTION</p>
-          <h2 id="javascript-title">JavaScript</h2>
-        </div>
-        <span class="track-count" id="task-count" aria-live="polite"></span>
-      </div>
-      <div id="days-container" class="days-container" aria-live="polite"></div>
-    </section>
-
-    <footer class="site-footer">Backend Learning Hub</footer>
-  </main>
+    <footer class="footer">
+      <span>Backend Learning Hub</span>
+      <span>Learn at your own pace</span>
+    </footer>
+  </div>
 </body>
 </html>
