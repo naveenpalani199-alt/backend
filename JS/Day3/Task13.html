@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task13</title>
+</head>
+<body>
+   
+    
+    <script>
+
+        
+const user = {
+    name: "Bala",
+    role: "Admin",
+    isLoggedIn: true
+};
+
+const checkLogin = ({ name, role, isLoggedIn }) => {
+    if (isLoggedIn) {
+        return `Welcome ${name}
+Role: ${role}`;
+    }
+
+    return "Please Login";
+};
+
+console.log(checkLogin(user));
+
+
+
+    </script>
+</body>
+</html>

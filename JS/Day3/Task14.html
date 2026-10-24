@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task14</title>
+</head>
+<body>
+   
+    
+    <script>
+
+        
+const product = {
+    name: "Laptop",
+    price: 60000,
+    category: "Electronics"
+};
+
+const getProductInfo = ({ name, price, category }) => {
+    return `Product: ${name}
+Price: ₹${price}
+Category: ${category}`;
+};
+
+console.log(getProductInfo(product));
+
+const updatedProduct = {
+    ...product,
+    price: 65000
+};
+
+console.log(updatedProduct);
+console.log(product.price);
+
+
+
+    </script>
+</body>
+</html>

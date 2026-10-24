@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task15</title>
+</head>
+<body>
+   
+    
+    <script>
+
+        
+const user = {
+    name: "Bala",
+    age: 25,
+    role: "Frontend Developer",
+    address: {
+        city: "Chennai"
+    }
+};
+
+// Function 1: Get user name
+const getUserName = ({ name }) => name;
+
+// Function 2: Get user location
+const getUserLocation = (user) =>
+    user.address?.city ?? "Unknown";
+
+// Function 3: Get user message
+const getUserMessage = ({ name, age, role, address }) => {
+    const city = address?.city ?? "Unknown";
+
+    return `${name} is a ${age} year old ${role} from ${city}.`;
+};
+
+// Function 4: Update user without changing original
+const updateUser = (user) => ({
+    ...user,
+    age: 26,
+    role: "Senior Frontend Developer"
+});
+
+// Function 5: Print users
+const printUsers = (users) => {
+    for (const { name, role } of users) {
+        console.log(`${name} - ${role}`);
+    }
+};
+
+// Test the functions
+console.log(getUserName(user));
+console.log(getUserLocation(user));
+console.log(getUserMessage(user));
+
+const updatedUser = updateUser(user);
+
+console.log(updatedUser.age);
+console.log(updatedUser.role);
+console.log(user.age);
+console.log(user.role);
+
+const users = [
+    user,
+    {
+        name: "Arun",
+        age: 30,
+        role: "Backend Developer"
+    },
+    {
+        name: "Kumar",
+        age: 28,
+        role: "Tester"
+    }
+];
+
+printUsers(users);
+
+
+
+    </script>
+</body>
+</html>

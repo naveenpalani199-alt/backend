@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task8</title>
+</head>
+<body>
+   
+    
+    <script>
+
+        
+const calculateTotal = (...prices) => {
+    let total = 0;
+
+    for (const price of prices) {
+        total += price;
+    }
+
+    return total;
+};
+
+console.log(calculateTotal(100, 200, 300));
+console.log(calculateTotal(50, 100));
+console.log(calculateTotal(100, 200, 300, 400));
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task10</title>
+</head>
+<body>
+   
+    
+    <script>
+
+        
+    
+const user = {
+    name: "Bala",
+    age: 25
+};
+
+const getCity = () => {
+    return user.address?.city ?? "Unknown City";
+};
+
+console.log(getCity());
+
+user.address = {
+    city: "Chennai"
+};
+
+console.log(getCity());
+
+
+    </script>
+</body>
+</html>

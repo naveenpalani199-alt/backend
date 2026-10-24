@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task5</title>
+</head>
+<body>
+    
+
+    <script>
+
+        const product = {
+
+            name: "Laptop",
+            price: 60000,
+            quantity: 2
+        }
+
+        const totalProduct = ({name,price,quantity})=>{
+
+            const total = price*quantity
+
+            return `${name}
+
+            Price:${price},
+            Quantity:${quantity},
+            Total:${total}`
+        }
+
+        console.log(totalProduct(product));
+        
+    </script>
+</body>
+</html>
