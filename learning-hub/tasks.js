@@ -4,6 +4,7 @@
   const app = document.getElementById("app");
   const taskFilesDay1 = ["Task1.html", "Task2.html", "Task3.html", "Task4.html", "Task5.html", "Task6.html", "Task7.html", "Task8.html", "Task9.html", "Task10.html"];
   const taskFilesDay3 = ["Task1.html", "Task2.html", "Task3.html", "Task4.html", "Task5.html", "Task6.html", "Task7.html", "Task8.html", "Task9.html", "Task10.html", "Task11.html", "Task12.html", "Task13.html", "Task14.html", "Task15.html"];
+  const taskFilesDay5 = ["Task1.html", "Task2.html", "Task3.html", "Task4.html", "Task5.html", "Task6.html", "Task7.html", "Task8.html", "Task9.html", "Task10.html"];
 
   // This registry reflects the task files actually present in JS/. Update it when new files are added.
   const technologies = [
@@ -14,7 +15,8 @@
       description: "Core language practice, one task at a time.",
       days: [
         { id: "Day1", label: "Day 1", tasks: taskFilesDay1 },
-        { id: "Day3", label: "Day 3", tasks: taskFilesDay3 }
+        { id: "Day3", label: "Day 3", tasks: taskFilesDay3 },
+        { id: "Day5", label: "Day 5", tasks: taskFilesDay5 }
       ]
     },
     { id: "nodejs", name: "Node.js", symbol: "N", description: "Runtime and server-side JavaScript practice.", days: [] },
