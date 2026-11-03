@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task3</title>
+</head>
+<body>
+    
+
+    <script>
+
+        
+const price = 5000;
+
+const calculateDiscount = new Promise((resolve, reject) => {
+    if (price <= 0) {
+        reject("Price must be greater than zero");
+    } else {
+        const discountedPrice = price - (price * 10 / 100);
+        resolve(discountedPrice);
+    }
+});
+
+calculateDiscount
+    .then(discountedPrice => {
+        console.log(`Discounted Price: ₹${discountedPrice}`);
+    })
+    .catch(error => {
+        console.log(error);
+    })
+    .finally(() => {
+        console.log("Calculation completed");
+    });
+
+    </script>
+</body>
+</html>

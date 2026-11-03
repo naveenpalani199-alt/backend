@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task2</title>
+</head>
+<body>
+    
+    <script>
+
+        
+const username = "admin";
+const password = "1234";
+
+const login = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        if (username === "admin" && password === "1234") {
+            resolve("Login Successful");
+        } else {
+            reject("Invalid Credentials");
+        }
+    }, 2000);
+});
+
+login
+    .then(message => console.log(message))
+    .catch(error => console.log(error));
+
+    </script>
+</body>
+</html>

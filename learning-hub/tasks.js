@@ -5,6 +5,7 @@
   const taskFilesDay1 = ["Task1.html", "Task2.html", "Task3.html", "Task4.html", "Task5.html", "Task6.html", "Task7.html", "Task8.html", "Task9.html", "Task10.html"];
   const taskFilesDay3 = ["Task1.html", "Task2.html", "Task3.html", "Task4.html", "Task5.html", "Task6.html", "Task7.html", "Task8.html", "Task9.html", "Task10.html", "Task11.html", "Task12.html", "Task13.html", "Task14.html", "Task15.html"];
   const taskFilesDay5 = ["Task1.html", "Task2.html", "Task3.html", "Task4.html", "Task5.html", "Task6.html", "Task7.html", "Task8.html", "Task9.html", "Task10.html"];
+  const taskFilesDay7 = ["Task1.html", "Task2.html", "Task3.html", "Task4.html", "Task5.html", "Task6.html"];
 
   // This registry reflects the task files actually present in JS/. Update it when new files are added.
   const technologies = [
@@ -16,7 +17,8 @@
       days: [
         { id: "Day1", label: "Day 1", tasks: taskFilesDay1 },
         { id: "Day3", label: "Day 3", tasks: taskFilesDay3 },
-        { id: "Day5", label: "Day 5", tasks: taskFilesDay5 }
+        { id: "Day5", label: "Day 5", tasks: taskFilesDay5 },
+        { id: "Day7", label: "Day 7", tasks: taskFilesDay7 }
       ]
     },
     { id: "nodejs", name: "Node.js", symbol: "N", description: "Runtime and server-side JavaScript practice.", days: [] },
@@ -178,7 +180,7 @@
   window.addEventListener("message", handlePreviewMessage);
 
   function buildPreviewDocument(source) {
-    const csp = "<meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; font-src data:; media-src data: blob:; connect-src 'none'; form-action 'none'; base-uri 'none'; object-src 'none'; frame-src 'none'\">";
+    const csp = "<meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; font-src data:; media-src data: blob:; connect-src https://jsonplaceholder.typicode.com https://dummyjson.com; form-action 'none'; base-uri 'none'; object-src 'none'; frame-src 'none'\">";
     const capture = [
       "(function(){",
       "function stringify(value){if(typeof value==='string')return value;try{var result=JSON.stringify(value);return result===undefined?String(value):result;}catch(error){return String(value);}}",
