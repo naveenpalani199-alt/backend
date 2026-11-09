@@ -1,0 +1,169 @@
+1.An HTML attribute provides additional information about an HTML element. Attributes are written inside the opening tag.
+       ->Global Attributes: id, class, style, title.
+
+       ->Element-specific Attributes: src,href,alt ,type.
+
+       ->Boolean Attributes: required, disabled, checked, readonly.
+
+2.CSS Layout is used to arrange and position HTML elements on a webpage.
+     Different CSS Layout Methods:
+        1.Normal Flow: Elements appear in their default order.
+           ->Use: Simple webpage content.
+        2.Flexbox: Arranges elements in rows or columns.
+           ->Use: Navigation bars, buttons and cards.
+        3.CSS Grid: Creates rows and columns.
+           ->Use: Image galleries and dashboards.
+        4. Positioning: Controls the position of elements.
+           ->Types: static, relative, absolute, fixed, sticky.
+           ->Use: Popups, navigation bars and overlays.
+        5. Float Layout: Moves elements to the left or right.
+           ->Use: Wrapping text around images.
+
+
+3.A programming language is a language used to communicate with computers and give instructions to perform specific tasks.
+     Examples: C, C++, Java, Python and JavaScript.
+     Uses:
+       - Building websites.
+       - Developing mobile applications.
+       - Creating software.
+       - Developing games.
+       - Working with databases.
+
+4.JavaScript is a high-level programming language used to make websites interactive and dynamic.
+     Features:
+       1. Lightweight: Easy to use and execute.
+       2. Dynamic: Variables can hold different types of values.
+       3. JIT compiled: JavaScript engines execute and optimize code.
+       4. Event-driven: Responds to clicks and keyboard actions.
+       5. Object-based: Supports objects and object-oriented programming.
+       6. Asynchronous: Supports Promises, async/await and callbacks.
+       7. Cross-platform: Runs in different browsers and environments.
+
+5.A function is a reusable block of code that performs a specific task. It executes when it is called.
+
+     1. Function Declaration
+         function add(a, b) {
+           return a + b;
+          }
+
+        console.log(add(10, 20));
+
+    2. Function Expression
+       const greet = function() {
+         console.log("Hello");
+          };
+
+        greet();
+
+     3. Arrow Function
+        const add = (a, b) => {
+           return a + b;
+         };
+
+        console.log(add(5, 5));
+
+     4. Anonymous Function: A function without a name.
+        setTimeout(function() {
+           console.log("Hello");
+         }, 1000);
+
+    5. IIFE: Immediately Invoked Function Expression. It executes immediately after creation.
+        (function() {
+           console.log("Welcome");
+         })();
+
+
+    6. Callback Function: A function passed as an argument to another function.
+           function display(callback) {
+             callback();
+            }
+
+            display(function() {
+             console.log("Hello");
+            });
+
+
+
+6.Fetch API is used to send HTTP requests and receive data from servers. It returns a Promise.
+
+        Uses:
+        - Fetching user information.
+        - Getting product details.
+        - Sending form data.
+        - Communicating with APIs.
+
+7.React.js is a JavaScript library used to build fast and interactive user interfaces, especially single-page applications.
+
+
+        Features:
+           1. Component-based: UI is divided into reusable components.
+           2. Virtual DOM: Helps update the UI efficiently.
+           3. JSX: Allows writing HTML-like syntax inside JavaScript.
+           4. One-way Data Flow: Data generally flows from parent to child components.
+           5. Reusable Components: Components can be reused in multiple places.
+           6. Hooks: Used to manage state and other React features.
+           7. Declarative UI: Developers describe how the UI should look based on data.
+
+8. ->ES6 stands for ECMAScript 2015. It introduced many new features to JavaScript.
+   ->ES6+ refers to ES6 and later ECMAScript versions that introduce additional JavaScript features.
+
+      Important ES6 Features:
+          1. let and const
+          2. Arrow Functions
+          3. Template Literals
+          4. Destructuring
+          5. Spread Operator
+          6. Rest Parameters
+          7. Classes
+          8. Promises
+          9. Modules (import and export)
+
+
+9.npm:
+    ->npm stands for Node Package Manager. It is used to install, manage and maintain JavaScript packages.
+  npx:
+    ->npx is a package runner. It is used to execute packages without necessarily installing them globally.
+
+
+10. Babel:
+      Babel is a JavaScript compiler that transforms modern JavaScript and JSX into code compatible with other environments.
+    esbuild:
+      esbuild is a fast JavaScript and CSS bundler and minifier. It also supports transforming JavaScript and JSX.
+    Webpack:
+      Webpack is a module bundler. It combines application modules and their dependencies into bundles.
+    Blunder:
+      A bundler is a tool that combines multiple files and dependencies into optimized output files for an application.
+             ->Uses:
+                 - Combining files.
+                 - Managing dependencies.
+                 - Optimizing code.
+                 - Reducing file size.
+                 - Improving application loading.
+
+11.->Vite is a modern frontend build tool used to develop and build web applications quickly.
+   ->It is commonly used with React, Vue and other frontend frameworks.
+
+       Features:
+                1. Fast Development Server: Starts the development server quickly.
+                2. Hot Module Replacement (HMR): Updates changed modules without reloading the entire page.
+                3. Fast Build: Uses modern build tools for production builds.
+                4. ES Modules: Uses native browser ES modules during development.
+                5. Plugin Support: Supports plugins to extend functionality.
+                6. Optimized Production Build: Creates optimized files for deployment.
+
+      Uses:
+                - Creating React projects.
+                - Developing frontend applications.
+                - Running local development servers.
+                - Building production applications.
+
+
+12.
+     1. Oxc:
+           -> Oxc stands for The Oxidation Compiler. It is a collection of high-performance JavaScript tools written in Rust.
+     2. Rollup:
+           ->Rollup is a JavaScript module bundler used to combine multiple modules into optimized output files.
+     3. Rolldown:
+           ->Rolldown is a JavaScript bundler written in Rust. It is designed to be compatible with Rollup's ecosystem and provide high performance.
+
+13.

@@ -21,6 +21,43 @@
         { id: "Day7", label: "Day 7", tasks: taskFilesDay7 }
       ]
     },
+    {
+      id: "react",
+      name: "React",
+      symbol: "R",
+      description: "Component-based user interface practice.",
+      days: [
+        {
+          id: "Day1",
+          label: "Day 1",
+          tasks: [
+            { id: "Day1.txt", label: "Day 1 notes", filename: "Day1.txt", path: "../REACT/Day1/Day1.txt", kind: "text" }
+          ]
+        },
+        {
+          id: "Day2",
+          label: "Day 2",
+          tasks: [
+            { id: "Day2.png", label: "Day 2 screenshot", filename: "Day2.png", path: "../REACT/Day2/Day2.png", kind: "image" }
+          ]
+        },
+        {
+          id: "Day4",
+          label: "Day 4",
+          tasks: [
+            {
+              id: "React Router Practice",
+              label: "React Router Practice",
+              filename: "Existing Vite React project",
+              path: "../REACT/Day4/day4/",
+              kind: "react-project",
+              previewUrl: "http://127.0.0.1:5173/",
+              startCommand: "Set-Location 'D:\\Backend\\REACT\\Day4\\day4'; npm run dev -- --host 127.0.0.1 --port 5173 --strictPort"
+            }
+          ]
+        }
+      ]
+    },
     { id: "nodejs", name: "Node.js", symbol: "N", description: "Runtime and server-side JavaScript practice.", days: [] },
     { id: "expressjs", name: "Express.js", symbol: "Ex", description: "Web framework exercises and API practice.", days: [] },
     { id: "mongodb", name: "MongoDB", symbol: "DB", description: "Database and data modeling practice.", days: [] }
@@ -145,6 +182,10 @@
     return match ? "Task " + match[1] : filename;
   }
 
+  function taskId(task) { return typeof task === "string" ? task : task.id; }
+  function taskName(task) { return typeof task === "string" ? taskLabel(task) : task.label; }
+  function taskFilename(task) { return typeof task === "string" ? task : task.filename; }
+
   function renderDay(tech, day) {
     app.appendChild(addBreadcrumbs([
       { label: "Technologies", href: "#/" },
@@ -153,11 +194,11 @@
     ]));
     app.appendChild(addPageHeading(day.label, tech.name + " tasks found in this day folder.", techPath(tech.id), "All " + tech.name + " days"));
     const grid = element("div", "task-grid");
-    day.tasks.forEach(function (filename) {
-      const card = makeLink("", taskPath(tech.id, day.id, filename), "task-card");
+    day.tasks.forEach(function (task) {
+      const card = makeLink("", taskPath(tech.id, day.id, taskId(task)), "task-card");
       const title = element("div", "");
-      title.appendChild(element("strong", "", taskLabel(filename)));
-      title.appendChild(element("span", "", filename));
+      title.appendChild(element("strong", "", taskName(task)));
+      title.appendChild(element("span", "", taskFilename(task)));
       card.appendChild(title);
       card.appendChild(element("span", "task-arrow", "→"));
       grid.appendChild(card);
@@ -179,6 +220,109 @@
   }
   window.addEventListener("message", handlePreviewMessage);
 
+  function addTaskHeading(tech, day, task) {
+    app.appendChild(addBreadcrumbs([
+      { label: "Technologies", href: "#/" },
+      { label: tech.name, href: techPath(tech.id) },
+      { label: day.label, href: dayPath(tech.id, day.id) },
+      { label: task.label }
+    ]));
+    const heading = element("div", "page-heading viewer-title-row");
+    const copy = element("div", "");
+    copy.appendChild(element("p", "eyebrow", tech.name + " • " + day.label));
+    copy.appendChild(element("h1", "", task.label));
+    copy.appendChild(element("p", "", task.filename));
+    heading.appendChild(copy);
+    const actions = element("div", "viewer-actions");
+    actions.appendChild(makeLink("← Back to tasks", dayPath(tech.id, day.id), "back-link"));
+    heading.appendChild(actions);
+    app.appendChild(heading);
+    return heading;
+  }
+
+  async function renderReactResource(tech, day, task, version) {
+    addTaskHeading(tech, day, task);
+    const loading = element("div", "loading-state", "Loading the existing React learning material…");
+    app.appendChild(loading);
+    try {
+      const response = await fetch(task.path);
+      if (!response.ok) throw new Error("The task file returned HTTP " + response.status + ".");
+      if (version !== renderVersion) return;
+      loading.remove();
+
+      const panel = element("section", "panel react-material");
+      const header = element("div", "panel-header");
+      const title = element("div", "panel-heading");
+      title.appendChild(element("strong", "", task.kind === "text" ? "Existing notes" : "Existing screenshot"));
+      title.appendChild(element("span", "", task.filename));
+      header.appendChild(title);
+      panel.appendChild(header);
+
+      if (task.kind === "text") {
+        const content = await response.text();
+        if (version !== renderVersion) return;
+        panel.appendChild(element("article", "react-notes", content));
+      } else {
+        const figure = element("figure", "react-image-preview");
+        const image = element("img", "", null);
+        image.src = task.path;
+        image.alt = "Existing React Day 2 project screenshot";
+        figure.appendChild(image);
+        panel.appendChild(figure);
+      }
+      app.appendChild(panel);
+    } catch (error) {
+      if (version !== renderVersion) return;
+      loading.className = "error-state";
+      loading.replaceChildren(element("strong", "", "React learning material could not be loaded"), document.createTextNode(error.message + " Make sure the hub is served over HTTP and the task path exists."));
+    }
+  }
+
+  function renderReactProject(tech, day, task, version) {
+    addTaskHeading(tech, day, task);
+    const instructions = element("div", "instructions");
+    instructions.appendChild(element("span", "", "ⓘ"));
+    const copy = element("div", "");
+    copy.appendChild(element("strong", "", "Open the existing Vite React project. "));
+    copy.appendChild(document.createTextNode("The project uses Vite to compile its JSX. Its source files and dependencies are left in place."));
+    instructions.appendChild(copy);
+    app.appendChild(instructions);
+
+    const panel = element("section", "panel react-project-panel");
+    const header = element("div", "panel-header");
+    const title = element("div", "panel-heading");
+    title.appendChild(element("strong", "", "Day 4 React Router Practice"));
+    title.appendChild(element("span", "", "Existing project: " + task.path));
+    header.appendChild(title);
+    panel.appendChild(header);
+    const content = element("div", "react-project-content");
+    const status = element("p", "project-status", "Checking whether the Vite server is running…");
+    content.appendChild(status);
+    const actions = element("div", "viewer-actions");
+    const openLink = makeLink("Open React project ↗", task.previewUrl, "button button-primary");
+    openLink.target = "_blank";
+    openLink.rel = "noopener noreferrer";
+    actions.appendChild(openLink);
+    content.appendChild(actions);
+    content.appendChild(element("p", "command-caption", "If the project does not open, run this exact command in PowerShell:"));
+    const command = element("pre", "command-block");
+    command.appendChild(element("code", "", task.startCommand));
+    content.appendChild(command);
+    panel.appendChild(content);
+    app.appendChild(panel);
+
+    fetch(task.previewUrl, { cache: "no-store" }).then(function (response) {
+      if (version !== renderVersion) return;
+      if (!response.ok) throw new Error("HTTP " + response.status);
+      status.className = "project-status project-status--ready";
+      status.textContent = "Vite responded at " + task.previewUrl + " The project link is ready.";
+    }).catch(function () {
+      if (version !== renderVersion) return;
+      status.className = "project-status project-status--stopped";
+      status.textContent = "The Vite server is not responding at " + task.previewUrl + ". Run the command below, then open the project link.";
+    });
+  }
+
   function buildPreviewDocument(source) {
     const csp = "<meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; font-src data:; media-src data: blob:; connect-src https://jsonplaceholder.typicode.com https://dummyjson.com; form-action 'none'; base-uri 'none'; object-src 'none'; frame-src 'none'\">";
     const capture = [
@@ -197,23 +341,16 @@
   }
 
   async function renderTask(tech, day, filename, version) {
-    const task = { label: taskLabel(filename), filename: filename, path: "../JS/" + day.id + "/" + filename };
-    app.appendChild(addBreadcrumbs([
-      { label: "Technologies", href: "#/" },
-      { label: tech.name, href: techPath(tech.id) },
-      { label: day.label, href: dayPath(tech.id, day.id) },
-      { label: task.label }
-    ]));
+    const registeredTask = day.tasks.find(function (item) { return taskId(item) === filename; });
+    const task = typeof registeredTask === "string"
+      ? { label: taskLabel(registeredTask), filename: registeredTask, path: "../JS/" + day.id + "/" + registeredTask, kind: "html" }
+      : registeredTask;
+    if (task.kind === "text" || task.kind === "image") return renderReactResource(tech, day, task, version);
+    if (task.kind === "react-project") return renderReactProject(tech, day, task, version);
 
-    const heading = element("div", "page-heading viewer-title-row");
-    const headingCopy = element("div", "");
-    headingCopy.appendChild(element("p", "eyebrow", tech.name + " • " + day.label));
-    headingCopy.appendChild(element("h1", "", task.label));
-    headingCopy.appendChild(element("p", "", task.filename));
-    heading.appendChild(headingCopy);
+    const heading = addTaskHeading(tech, day, task);
 
     const actions = element("div", "viewer-actions");
-    actions.appendChild(makeLink("← Back to tasks", dayPath(tech.id, day.id), "back-link"));
     const originalLink = makeLink("Open original ↗", task.path, "button");
     originalLink.target = "_blank";
     originalLink.rel = "noopener noreferrer";
@@ -320,7 +457,7 @@
     if (!day) { renderNotFound(); return; }
     if (route.type === "day") { renderDay(tech, day); return; }
     if (route.type === "task") {
-      if (day.tasks.indexOf(route.filename) === -1) { renderNotFound(); return; }
+      if (!day.tasks.some(function (task) { return taskId(task) === route.filename; })) { renderNotFound(); return; }
       renderTask(tech, day, route.filename, version);
       return;
     }

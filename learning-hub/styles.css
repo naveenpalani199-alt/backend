@@ -91,6 +91,17 @@ h1 { margin-bottom: 10px; color: var(--ink); font-size: clamp(30px, 4vw, 42px); 
 .panel-heading span { display: block; margin-top: 4px; color: var(--muted); font-size: 10px; }
 .source-code { max-height: 620px; min-height: 280px; margin: 0; padding: 17px; overflow: auto; background: #111a2a; color: #dbe7ff; font: 12px/1.65 ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace; tab-size: 4; white-space: pre; }
 .source-code code { font: inherit; }
+.react-material { max-width: 100%; }
+.react-notes { margin: 0; padding: 24px; color: #26334b; background: #fff; font: 14px/1.75 ui-sans-serif, system-ui, sans-serif; white-space: pre-wrap; overflow-wrap: anywhere; }
+.react-image-preview { display: flex; justify-content: center; margin: 0; padding: 18px; background: #f7f9fc; }
+.react-image-preview img { display: block; width: 100%; height: auto; max-height: 78vh; object-fit: contain; }
+.react-project-content { padding: 20px; }
+.project-status { margin: 0 0 14px; color: var(--muted); font-size: 13px; line-height: 1.6; }
+.project-status--ready { color: var(--green); }
+.project-status--stopped { color: #9e5a16; }
+.command-caption { margin: 20px 0 8px; color: #59667d; font-size: 12px; }
+.command-block { margin: 0; padding: 14px 16px; border-radius: 9px; overflow-x: auto; background: #111a2a; color: #dbe7ff; font: 12px/1.65 ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace; white-space: pre-wrap; overflow-wrap: anywhere; }
+.command-block code { font: inherit; }
 .preview-wrap { position: relative; }
 .preview-frame { display: block; width: 100%; min-height: 280px; border: 0; background: #fff; }
 .preview-placeholder { position: absolute; z-index: 1; inset: 0; display: grid; min-height: 280px; place-content: center; padding: 24px; background: #fff; color: var(--muted); text-align: center; }
