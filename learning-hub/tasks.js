@@ -51,7 +51,7 @@
               filename: "Existing Vite React project",
               path: "../REACT/Day4/day4/",
               kind: "react-project",
-              previewUrl: "http://127.0.0.1:5173/",
+              previewUrl: "https://naveenpalani199-alt.github.io/backend/REACT/Day4/day4-site/",
               startCommand: "Set-Location 'D:\\Backend\\REACT\\Day4\\day4'; npm run dev -- --host 127.0.0.1 --port 5173 --strictPort"
             }
           ]
@@ -296,15 +296,15 @@
     header.appendChild(title);
     panel.appendChild(header);
     const content = element("div", "react-project-content");
-    const status = element("p", "project-status", "Checking whether the Vite server is running…");
+    const status = element("p", "project-status", "Checking the configured GitHub Pages URL…");
     content.appendChild(status);
     const actions = element("div", "viewer-actions");
-    const openLink = makeLink("Open React project ↗", task.previewUrl, "button button-primary");
+    const openLink = makeLink("Open GitHub Pages React app ↗", task.previewUrl, "button button-primary");
     openLink.target = "_blank";
     openLink.rel = "noopener noreferrer";
     actions.appendChild(openLink);
     content.appendChild(actions);
-    content.appendChild(element("p", "command-caption", "If the project does not open, run this exact command in PowerShell:"));
+    content.appendChild(element("p", "command-caption", "For local development, run this exact command in PowerShell:"));
     const command = element("pre", "command-block");
     command.appendChild(element("code", "", task.startCommand));
     content.appendChild(command);
@@ -315,11 +315,11 @@
       if (version !== renderVersion) return;
       if (!response.ok) throw new Error("HTTP " + response.status);
       status.className = "project-status project-status--ready";
-      status.textContent = "Vite responded at " + task.previewUrl + " The project link is ready.";
+      status.textContent = "GitHub Pages responded at " + task.previewUrl + ".";
     }).catch(function () {
       if (version !== renderVersion) return;
-      status.className = "project-status project-status--stopped";
-      status.textContent = "The Vite server is not responding at " + task.previewUrl + ". Run the command below, then open the project link.";
+      status.className = "project-status";
+      status.textContent = "The hosted app could not be confirmed from this page. Open the GitHub Pages link to check its current deployment.";
     });
   }
 

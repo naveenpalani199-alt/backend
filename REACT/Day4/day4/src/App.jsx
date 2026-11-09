@@ -19,7 +19,7 @@ import "./App.css";
 const App = () => {
   return (
     <>
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <div className="container">
 
         <h1>React Router Practice</h1>
