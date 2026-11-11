@@ -60,11 +60,11 @@
           id: "Day6",
           label: "Day 6",
           tasks: [
-            { id: "StudentProfile.jsx", label: "Student Profile", filename: "StudentProfile.jsx", path: "../REACT/Day6/day6/src/components/StudentProfile.jsx", kind: "react-component", previewUrl: "../REACT/Day6/day6-site/?component=StudentProfile" },
-            { id: "Employee.jsx", label: "Employee Details", filename: "Employee.jsx", path: "../REACT/Day6/day6/src/components/Employee.jsx", kind: "react-component", previewUrl: "../REACT/Day6/day6-site/?component=Employee" },
-            { id: "Product.jsx", label: "Product Details", filename: "Product.jsx", path: "../REACT/Day6/day6/src/components/Product.jsx", kind: "react-component", previewUrl: "../REACT/Day6/day6-site/?component=Product" },
-            { id: "StudentList.jsx", label: "Student List", filename: "StudentList.jsx", path: "../REACT/Day6/day6/src/components/StudentList.jsx", kind: "react-component", previewUrl: "../REACT/Day6/day6-site/?component=StudentList" },
-            { id: "CourseDetails.jsx", label: "Course Details", filename: "CourseDetails.jsx", path: "../REACT/Day6/day6/src/components/CourseDetails.jsx", kind: "react-component", previewUrl: "../REACT/Day6/day6-site/?component=CourseDetails" }
+            { id: "StudentProfile.jsx", label: "Student Profile", filename: "StudentProfile.jsx", path: "../REACT/Day6/day6/src/components/StudentProfile.jsx", kind: "react-component", previewUrl: "https://naveenpalani199-alt.github.io/backend/REACT/Day6/day6-site/?component=StudentProfile" },
+            { id: "Employee.jsx", label: "Employee Details", filename: "Employee.jsx", path: "../REACT/Day6/day6/src/components/Employee.jsx", kind: "react-component", previewUrl: "https://naveenpalani199-alt.github.io/backend/REACT/Day6/day6-site/?component=Employee" },
+            { id: "Product.jsx", label: "Product Details", filename: "Product.jsx", path: "../REACT/Day6/day6/src/components/Product.jsx", kind: "react-component", previewUrl: "https://naveenpalani199-alt.github.io/backend/REACT/Day6/day6-site/?component=Product" },
+            { id: "StudentList.jsx", label: "Student List", filename: "StudentList.jsx", path: "../REACT/Day6/day6/src/components/StudentList.jsx", kind: "react-component", previewUrl: "https://naveenpalani199-alt.github.io/backend/REACT/Day6/day6-site/?component=StudentList" },
+            { id: "CourseDetails.jsx", label: "Course Details", filename: "CourseDetails.jsx", path: "../REACT/Day6/day6/src/components/CourseDetails.jsx", kind: "react-component", previewUrl: "https://naveenpalani199-alt.github.io/backend/REACT/Day6/day6-site/?component=CourseDetails" }
           ]
         }
       ]
