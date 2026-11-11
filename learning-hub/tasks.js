@@ -60,11 +60,11 @@
           id: "Day6",
           label: "Day 6",
           tasks: [
-            { id: "StudentProfile.jsx", label: "Student Profile", filename: "StudentProfile.jsx", path: "../REACT/Day6/day6/src/components/StudentProfile.jsx", kind: "text" },
-            { id: "Employee.jsx", label: "Employee Details", filename: "Employee.jsx", path: "../REACT/Day6/day6/src/components/Employee.jsx", kind: "text" },
-            { id: "Product.jsx", label: "Product Details", filename: "Product.jsx", path: "../REACT/Day6/day6/src/components/Product.jsx", kind: "text" },
-            { id: "StudentList.jsx", label: "Student List", filename: "StudentList.jsx", path: "../REACT/Day6/day6/src/components/StudentList.jsx", kind: "text" },
-            { id: "CourseDetails.jsx", label: "Course Details", filename: "CourseDetails.jsx", path: "../REACT/Day6/day6/src/components/CourseDetails.jsx", kind: "text" }
+            { id: "StudentProfile.jsx", label: "Student Profile", filename: "StudentProfile.jsx", path: "../REACT/Day6/day6/src/components/StudentProfile.jsx", kind: "react-component", previewUrl: "../REACT/Day6/day6-site/?component=StudentProfile" },
+            { id: "Employee.jsx", label: "Employee Details", filename: "Employee.jsx", path: "../REACT/Day6/day6/src/components/Employee.jsx", kind: "react-component", previewUrl: "../REACT/Day6/day6-site/?component=Employee" },
+            { id: "Product.jsx", label: "Product Details", filename: "Product.jsx", path: "../REACT/Day6/day6/src/components/Product.jsx", kind: "react-component", previewUrl: "../REACT/Day6/day6-site/?component=Product" },
+            { id: "StudentList.jsx", label: "Student List", filename: "StudentList.jsx", path: "../REACT/Day6/day6/src/components/StudentList.jsx", kind: "react-component", previewUrl: "../REACT/Day6/day6-site/?component=StudentList" },
+            { id: "CourseDetails.jsx", label: "Course Details", filename: "CourseDetails.jsx", path: "../REACT/Day6/day6/src/components/CourseDetails.jsx", kind: "react-component", previewUrl: "../REACT/Day6/day6-site/?component=CourseDetails" }
           ]
         }
       ]
@@ -289,6 +289,57 @@
     }
   }
 
+  async function renderReactComponentResource(tech, day, task, version) {
+    addTaskHeading(tech, day, task);
+    const loading = element("div", "loading-state", "Loading the original React component…");
+    app.appendChild(loading);
+    try {
+      const response = await fetch(task.path);
+      if (!response.ok) throw new Error("The task file returned HTTP " + response.status + ".");
+      const sourceText = await response.text();
+      if (version !== renderVersion) return;
+      loading.remove();
+
+      const grid = element("div", "viewer-grid");
+      const sourcePanel = element("section", "panel");
+      const sourceHeader = element("div", "panel-header");
+      const sourceHeading = element("div", "panel-heading");
+      sourceHeading.appendChild(element("strong", "", "Code"));
+      sourceHeading.appendChild(element("span", "", task.filename));
+      sourceHeader.appendChild(sourceHeading);
+      sourcePanel.appendChild(sourceHeader);
+      const pre = element("pre", "source-code");
+      const code = element("code", "");
+      code.textContent = sourceText;
+      pre.appendChild(code);
+      sourcePanel.appendChild(pre);
+      grid.appendChild(sourcePanel);
+
+      const previewPanel = element("section", "panel");
+      const previewHeader = element("div", "panel-header");
+      const previewHeading = element("div", "panel-heading");
+      previewHeading.appendChild(element("strong", "", "Live Output"));
+      previewHeading.appendChild(element("span", "", "Rendered by the existing React Day 6 app"));
+      previewHeader.appendChild(previewHeading);
+      previewPanel.appendChild(previewHeader);
+      const previewWrap = element("div", "preview-wrap");
+      const frame = element("iframe", "preview-frame");
+      frame.title = task.label + " live React output";
+      frame.setAttribute("sandbox", "allow-scripts allow-same-origin");
+      frame.style.height = task.id === "CourseDetails.jsx" ? "640px" : "460px";
+      frame.referrerPolicy = "no-referrer";
+      frame.src = task.previewUrl;
+      previewWrap.appendChild(frame);
+      previewPanel.appendChild(previewWrap);
+      grid.appendChild(previewPanel);
+      app.appendChild(grid);
+    } catch (error) {
+      if (version !== renderVersion) return;
+      loading.className = "error-state";
+      loading.replaceChildren(element("strong", "", "React component could not be loaded"), document.createTextNode(error.message + " Make sure the Hub is served over HTTP and both the source file and Day 6 preview site exist."));
+    }
+  }
+
   function renderReactProject(tech, day, task, version) {
     addTaskHeading(tech, day, task);
     const instructions = element("div", "instructions");
@@ -357,6 +408,7 @@
       ? { label: taskLabel(registeredTask), filename: registeredTask, path: "../JS/" + day.id + "/" + registeredTask, kind: "html" }
       : registeredTask;
     if (task.kind === "text" || task.kind === "image") return renderReactResource(tech, day, task, version);
+    if (task.kind === "react-component") return renderReactComponentResource(tech, day, task, version);
     if (task.kind === "react-project") return renderReactProject(tech, day, task, version);
 
     const heading = addTaskHeading(tech, day, task);
