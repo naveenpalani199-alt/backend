@@ -55,6 +55,17 @@
               startCommand: "Set-Location 'D:\\Backend\\REACT\\Day4\\day4'; npm run dev -- --host 127.0.0.1 --port 5173 --strictPort"
             }
           ]
+        },
+        {
+          id: "Day6",
+          label: "Day 6",
+          tasks: [
+            { id: "StudentProfile.jsx", label: "Student Profile", filename: "StudentProfile.jsx", path: "../REACT/Day6/day6/src/components/StudentProfile.jsx", kind: "text" },
+            { id: "Employee.jsx", label: "Employee Details", filename: "Employee.jsx", path: "../REACT/Day6/day6/src/components/Employee.jsx", kind: "text" },
+            { id: "Product.jsx", label: "Product Details", filename: "Product.jsx", path: "../REACT/Day6/day6/src/components/Product.jsx", kind: "text" },
+            { id: "StudentList.jsx", label: "Student List", filename: "StudentList.jsx", path: "../REACT/Day6/day6/src/components/StudentList.jsx", kind: "text" },
+            { id: "CourseDetails.jsx", label: "Course Details", filename: "CourseDetails.jsx", path: "../REACT/Day6/day6/src/components/CourseDetails.jsx", kind: "text" }
+          ]
         }
       ]
     },
