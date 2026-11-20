@@ -377,7 +377,7 @@
       const previewWrap = element("div", "preview-wrap");
       const frame = element("iframe", "preview-frame");
       frame.title = task.label + " live React output";
-      frame.setAttribute("sandbox", task.allowForms ? "allow-scripts allow-same-origin allow-forms" : "allow-scripts allow-same-origin");
+      frame.setAttribute("sandbox", task.allowForms ? "allow-scripts allow-forms" : "allow-scripts");
       frame.style.height = task.id === "CourseDetails.jsx" ? "640px" : "460px";
       frame.referrerPolicy = "no-referrer";
       frame.src = task.previewUrl;
