@@ -108,6 +108,15 @@
             { id: "Task1.jsx", label: "Form Validation", filename: "Task1.jsx", path: "../REACT/Day12/day12/src/components/Task1.jsx", kind: "react-component", previewUrl: "../REACT/Day12/day12-site/preview.html?task=1", allowForms: true },
             { id: "Task2.jsx", label: "Stable ID and Cancel Edit", filename: "Task2.jsx", path: "../REACT/Day12/day12/src/components/Task2.jsx", kind: "react-component", previewUrl: "../REACT/Day12/day12-site/preview.html?task=2", allowForms: true }
           ]
+        },
+        {
+          id: "Day14",
+          label: "Day 14",
+          tasks: [
+            { id: "Task1.jsx", label: "Product Limit Change", filename: "Task1.jsx", path: "../REACT/Day14/day14/src/components/Task1.jsx", kind: "react-component", previewUrl: "../REACT/Day14/day14-site/preview.html?task=1" },
+            { id: "Task2.jsx", label: "Product Count", filename: "Task2.jsx", path: "../REACT/Day14/day14/src/components/Task2.jsx", kind: "react-component", previewUrl: "../REACT/Day14/day14-site/preview.html?task=2" },
+            { id: "Task3.jsx", label: "useEffect Timer", filename: "Task3.jsx", path: "../REACT/Day14/day14/src/components/Task3.jsx", kind: "react-component", previewUrl: "../REACT/Day14/day14-site/preview.html?task=3" }
+          ]
         }
       ]
     },
